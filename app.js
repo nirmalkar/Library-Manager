@@ -9,7 +9,7 @@ const User = require('./models/user')
 
 mongoose.connect('mongodb+srv://hemant123:hemant123@cluster0-wjckl.gcp.mongodb.net/test?retryWrites=true&w=majority')
 const app = express()
-
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(require('express-session')({
   secret: 'Downey you are the best',
   resave: false,
@@ -41,7 +41,8 @@ app.get('/register', function (req, res) {
 })
 //POST METHOD FOR REGISTER
 app.post('/register', function (req, res) {
-  res.send('connected')
+  req.body.username
+  req.body.password
 })
 
 
