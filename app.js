@@ -19,6 +19,9 @@ app.use(require('express-session')({
 app.set('view engine', 'ejs')
 app.use(passport.initialize())
 app.use(passport.session())
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+
 
 app.get('/', function (req, res) {
   res.render('landing')
