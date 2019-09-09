@@ -1,5 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const passport = require('passport')
+const bodyParser = require('body-parser')
+const localStrategy = require('passport-local')
+const passportLocalMongoose = require('passport-local-mongoose')
+
 
 mongoose.connect('mongodb+srv://hemant123:hemant123@cluster0-wjckl.gcp.mongodb.net/test?retryWrites=true&w=majority')
 
