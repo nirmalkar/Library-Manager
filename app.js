@@ -7,6 +7,16 @@ app.set('view engine', 'ejs')
 app.get('/', function (req, res) {
   res.render('landing')
 })
+app.get('/secret', function (req, res) {
+  res.render('secret')
+})
+app.get('/register', function (req, res) {
+  res.render('register')
+})
+
+app.get('/login', function (req, res) {
+  res.render('login')
+})
 
 
 
