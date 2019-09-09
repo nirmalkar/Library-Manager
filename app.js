@@ -4,6 +4,7 @@ const passport = require('passport')
 const bodyParser = require('body-parser')
 const localStrategy = require('passport-local')
 const passportLocalMongoose = require('passport-local-mongoose')
+const User = require('./models/user')
 
 
 mongoose.connect('mongodb+srv://hemant123:hemant123@cluster0-wjckl.gcp.mongodb.net/test?retryWrites=true&w=majority')
@@ -11,9 +12,9 @@ mongoose.connect('mongodb+srv://hemant123:hemant123@cluster0-wjckl.gcp.mongodb.n
 
 
 const app = express()
-
-
 app.set('view engine', 'ejs')
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.get('/', function (req, res) {
   res.render('landing')
