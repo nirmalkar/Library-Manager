@@ -23,6 +23,34 @@ app.use(passport.session())
 passport.use(new localStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
+// ***********************************************
+
+const bookSchema = new mongoose.Schema({
+  name: String,
+  image: String,
+  description: String
+
+})
+const Book = mongoose.model('Book', bookSchema)
+
+Book.create(
+  {
+    name: 'The Alchemist',
+    image: 'https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, repellendus?'
+  },
+  function (err, book) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log('New book added')
+      console.log(book)
+    }
+  }
+)
+
+// *****************************************************
+
 // *********************************************
 // ROUTES
 // *********************************************
