@@ -19,6 +19,8 @@ app.use(require('express-session')({
 app.set('view engine', 'ejs')
 app.use(passport.initialize())
 app.use(passport.session())
+
+passport.use(new localStrategy(User.authenticate))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 // *********************************************
@@ -60,7 +62,7 @@ app.get('/login', function (req, res) {
   res.render('login')
 })
 //POST for login 
-//middleware-runs before and final route callback
+//middleware-runs before and final route call
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/secret',
   failureRedirect: '/login'
