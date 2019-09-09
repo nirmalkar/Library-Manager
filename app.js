@@ -132,6 +132,17 @@ function isLoggedIn(req, res, next) {
   res.redirect('/login')
 }
 
+app.get('/books/:id', function (req, res) {
+  Book.findById(req.params.id, function (err, foundBook) {
+    if (err) {
+      console.log(err)
+    } else {
+      // render the show template
+      res.render('show', { book: foundBook })
+    }
+  })
+})
+
 const PORT = process.env.PORT || 2000
 
 app.listen(PORT, function () {
