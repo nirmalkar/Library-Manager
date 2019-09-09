@@ -33,7 +33,7 @@ app.get('/', function (req, res) {
 })
 
 // LEADS TO SECRET PAGE
-app.get('/secret', function (req, res) {
+app.get('/secret', isLoggedIn, function (req, res) {
   res.render('secret')
 })
 
@@ -73,7 +73,12 @@ app.get('/logout', function (req, res) {
   req.logout()
   res.redirect('/')
 })
-
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login')
+}
 
 const PORT = process.env.PORT || 2000
 app.listen(PORT, function () {
