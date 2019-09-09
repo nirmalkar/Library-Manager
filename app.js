@@ -1,4 +1,10 @@
 const express = require('express')
+const mongoose = require('mongoose')
+
+mongoose.connect('mongodb+srv://hemant123:hemant123@cluster0-wjckl.gcp.mongodb.net/test?retryWrites=true&w=majority')
+
+
+
 const app = express()
 
 
