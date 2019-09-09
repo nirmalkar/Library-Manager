@@ -52,14 +52,33 @@ passport.deserializeUser(User.deserializeUser())
 app.get('/', function (req, res) {
   res.render('landing')
 })
+
+
 app.get('/books', function (req, res) {
   //  get all the books from db
-  Campground.find({}, function (err, allBooks) {
+  Book.find({}, function (err, allBooks) {
     if (err) {
       console.log(err)
     } else {
       res.render('index', { books: allBooks })
 
+    }
+  })
+})
+
+app.post('/books', function (req, res) {
+  //take data from form and add it to books array
+  let name = req.body.name
+  let image = req.body.image
+  let desc = req.body.description
+  let newBook = { name: name, image: image, description: desc }
+  //create a new book and save it to database
+  Book.create(newBook, function (err, newlyCreated) {
+    if (err) {
+      console.log(err)
+    } else {
+      //redirect back to books page
+      res.redirect('/books')
     }
   })
 })
