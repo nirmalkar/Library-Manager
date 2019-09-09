@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const localStrategy = require('passport-local')
 const passportLocalMongoose = require('passport-local-mongoose')
 const User = require('./models/user')
+let Book = require('./models/books')
 
 mongoose.connect('mongodb+srv://hemant123:hemant123@cluster0-wjckl.gcp.mongodb.net/test?retryWrites=true&w=majority')
 
@@ -23,31 +24,23 @@ app.use(passport.session())
 passport.use(new localStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
-// ***********************************************
 
-const bookSchema = new mongoose.Schema({
-  name: String,
-  image: String,
-  description: String
 
-})
-const Book = mongoose.model('Book', bookSchema)
-
-Book.create(
-  {
-    name: 'The Alchemist',
-    image: 'https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, repellendus?'
-  },
-  function (err, book) {
-    if (err) {
-      console.log(err)
-    } else {
-      console.log('New book added')
-      console.log(book)
-    }
-  }
-)
+// Book.create(
+//   {
+//     name: 'The Alchemist',
+//     image: 'https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+//     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, repellendus?'
+//   },
+//   function (err, book) {
+//     if (err) {
+//       console.log(err)
+//     } else {
+//       console.log('New book added')
+//       console.log(book)
+//     }
+//   }
+// )
 
 // *****************************************************
 
@@ -59,6 +52,18 @@ Book.create(
 app.get('/', function (req, res) {
   res.render('landing')
 })
+app.get('/books', function (req, res) {
+  //  get all the books from db
+  Campground.find({}, function (err, allBooks) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render('index', { books: allBooks })
+
+    }
+  })
+})
+
 
 // LEADS TO SECRET PAGE
 app.get('/secret', isLoggedIn, function (req, res) {
@@ -109,6 +114,7 @@ function isLoggedIn(req, res, next) {
 }
 
 const PORT = process.env.PORT || 2000
+
 app.listen(PORT, function () {
   console.log(`listening at the port ${PORT}`)
 })
