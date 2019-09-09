@@ -59,6 +59,13 @@ app.post('/register', function (req, res) {
 app.get('/login', function (req, res) {
   res.render('login')
 })
+//POST for login 
+//middleware-runs before and final route callback
+app.post('/login', passport.authenticate('local', {
+  successRedirect: '/secret',
+  failureRedirect: '/login'
+}), function (req, res) {
+})
 
 
 
