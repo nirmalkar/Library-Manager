@@ -85,9 +85,22 @@ app.post('/books', function (req, res) {
 
 
 // LEADS TO SECRET PAGE
+// app.get('/secret', isLoggedIn, function (req, res) {
+//   res.render('secret')
+// })
+
 app.get('/secret', isLoggedIn, function (req, res) {
-  res.render('secret')
+  //  get all the books from db
+  Book.find({}, function (err, allBooks) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render('secret', { books: allBooks })
+
+    }
+  })
 })
+
 
 // FOR SIGN UP FORM 
 app.get('/register', function (req, res) {
