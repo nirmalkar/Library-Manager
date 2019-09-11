@@ -1,0 +1,14 @@
+<%include partials/header%>
+<form action="/books" method="POST">
+  <input type="text" name="name" value="<%=book.name%>">
+  <input type="text" name="image" value="<%=book.image%>">
+  <input type="text" name="description" value="<%=book.description%>">
+  <button>Submit!</button>
+</form>
+<p><a href="/register">Sign up</a></p>
+<p><a href="/login">login</a></p>
+<p><a href="/logout">logout</a></p>
+
+
+
+<%include partials/footer%>
