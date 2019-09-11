@@ -156,6 +156,20 @@ app.get('/books/:id', function (req, res) {
   })
 })
 
+app.get('/books/:id/edit', function (req, res) {
+  Book.findById(req.params.id, function (err, foundBook) {
+    if (err) {
+      console.log(err)
+      res.render('/books')
+    } else {
+      // render the edit template
+      res.render('edit', { book: foundBook })
+    }
+  })
+})
+
+
+
 const PORT = process.env.PORT || 2000
 
 app.listen(PORT, function () {
