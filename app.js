@@ -168,6 +168,40 @@ app.get('/books/:id/edit', function (req, res) {
   })
 })
 
+// update route
+app.post('/books/:id', function (req, res) {
+  Book.findById(req.params.id, function (err, book) {
+    if (err) {
+      res.redirect('/books')
+    } else {
+      book.name = req.body.book.name
+      book.image = req.body.book.image
+      book.description = req.body.book.description
+      book.save()
+        .then(function (updated_book) {
+          res.redirect('/books')
+        })
+        .catch(function (err) {
+          res.redirect('/books')
+        })
+    }
+  })
+})
+
+
+// app.get('/books/:id/edit', function (req, res) {
+//   Book.findById(req.params.id, function (err, foundBook) {
+//     if (err) {
+//       console.log(err)
+//       res.render('/books')
+//     } else {
+//       // render the update template
+//       res.render('update', { book: foundBook })
+//     }
+//   })
+// })
+
+
 
 
 const PORT = process.env.PORT || 2000
