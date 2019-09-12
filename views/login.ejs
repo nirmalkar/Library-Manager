@@ -1,16 +1,24 @@
 <%include partials/header%>
 
-<h1>this is login page</h1>
+<!-- LOGIN FORM -->
 
-<form action="/login" method="POST">
-  <input type="text" name="username" placeholder="username">
-  <input type="password" name="password" placeholder="password">
-  <button>login</button>
-</form>
+<div class="ui main text container segment">
+  <form class="ui form" action="/books" method="POST">
+    <div class="field">
+      <label>Username</label>
+      <input type="text" name="username" placeholder="username">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="password">
+    </div>
+    <button>Login</button>
+  </form>
+</div>
 
 
 <p><a href="/register">Sign up</a></p>
 <p><a href="/login">login</a></p>
 <p><a href="/logout">logout</a></p>
 
-<%include partials/header%>
+<%include partials/footer%>
