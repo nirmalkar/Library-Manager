@@ -1,13 +1,25 @@
 <%include partials/header%>
 <h1>this is register page</h1>
 
-<form action="/register" method="POST">
+<!-- <form action="/register" method="POST">
   <input type="text" name="username" placeholder="username">
   <input type="password" name="password" placeholder="password">
   <button>Submit</button>
-</form>
+</form> -->
 
-
+<div class="ui main text container segment">
+  <form class="ui form" action="/register" method="POST">
+    <div class="field">
+      <label>Username</label>
+      <input type="text" name="username" placeholder="username">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="password">
+    </div>
+    <button>Login</button>
+  </form>
+</div>
 <p><a href="/register">Sign up</a></p>
 <p><a href="/login">login</a></p>
 <p><a href="/logout">logout</a></p>
