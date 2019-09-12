@@ -25,7 +25,7 @@ passport.use(new localStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
-
+// CREATE A NEW BOOK 
 // Book.create(
 //   {
 //     name: 'The Alchemist',
@@ -42,18 +42,17 @@ passport.deserializeUser(User.deserializeUser())
 //   }
 // )
 
-// *****************************************************
 
-// *********************************************
 // ROUTES
-// *********************************************
+
 
 // LEADS TO LANDING PAGE 
+
 app.get('/', function (req, res) {
   res.render('landing')
 })
 
-
+//LEADS TO BOOKS PAGE
 app.get('/books', function (req, res) {
   //  get all the books from db
   Book.find({}, function (err, allBooks) {
@@ -83,11 +82,7 @@ app.post('/books', function (req, res) {
   })
 })
 
-
 // LEADS TO SECRET PAGE
-// app.get('/secret', isLoggedIn, function (req, res) {
-//   res.render('secret')
-// })
 
 app.get('/secret', isLoggedIn, function (req, res) {
   //  get all the books from db
@@ -102,11 +97,14 @@ app.get('/secret', isLoggedIn, function (req, res) {
 })
 
 
-// FOR SIGN UP FORM 
+// FOR SIGN UP FORM
+
 app.get('/register', function (req, res) {
   res.render('register')
 })
+
 //POST METHOD FOR REGISTER
+
 app.post('/register', function (req, res) {
   req.body.username
   req.body.password
@@ -123,17 +121,21 @@ app.post('/register', function (req, res) {
 
 
 // LEADS TO LOGIN PAGE 
+
 app.get('/login', function (req, res) {
   res.render('login')
 })
+
 //POST for login 
 //middleware-runs before and final route call
+
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/secret',
   failureRedirect: '/login'
 }), function (req, res) {
 })
 
+//LEADS TO LOGOUT
 app.get('/logout', function (req, res) {
   req.logout()
   res.redirect('/')
@@ -145,6 +147,7 @@ function isLoggedIn(req, res, next) {
   res.redirect('/login')
 }
 
+//LEADS TO SHOW MORE ABOUT BOOK
 app.get('/books/:id', function (req, res) {
   Book.findById(req.params.id, function (err, foundBook) {
     if (err) {
@@ -156,6 +159,7 @@ app.get('/books/:id', function (req, res) {
   })
 })
 
+//LEADS TO EDIT PAGE (FOR EDITING OLD BOOKS)
 app.get('/books/:id/edit', function (req, res) {
   Book.findById(req.params.id, function (err, foundBook) {
     if (err) {
@@ -168,7 +172,8 @@ app.get('/books/:id/edit', function (req, res) {
   })
 })
 
-// update route
+// UPDATE ROUTE
+
 app.post('/books/:id', function (req, res) {
   Book.findById(req.params.id, function (err, book) {
     if (err) {
@@ -187,13 +192,15 @@ app.post('/books/:id', function (req, res) {
     }
   })
 })
-// delete route 
+
+//  DELETE ROUTE
+
 app.get('/books/:id/delete', function (req, res) {
   Book.findByIdAndRemove(req.params.id, function (err, book) {
     if (err) {
       console.log(err)
     } else {
-      res.redirect('/books')
+      res.redirect('/secret')
     }
   })
 })
