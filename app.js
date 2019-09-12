@@ -187,19 +187,18 @@ app.post('/books/:id', function (req, res) {
     }
   })
 })
+// delete route 
+app.get('/books/:id/delete', function (req, res) {
+  Book.findByIdAndRemove(req.params.id, function (err, book) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.redirect('/books')
+    }
+  })
+})
 
 
-// app.get('/books/:id/edit', function (req, res) {
-//   Book.findById(req.params.id, function (err, foundBook) {
-//     if (err) {
-//       console.log(err)
-//       res.render('/books')
-//     } else {
-//       // render the update template
-//       res.render('update', { book: foundBook })
-//     }
-//   })
-// })
 
 
 
