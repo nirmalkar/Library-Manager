@@ -1,5 +1,9 @@
 body {
-  background: red;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(216, 241, 230, 0.46) 0.1%,
+    rgba(233, 226, 226, 0.28) 90.1%
+  );
   font-family: "Roboto Slab", serif;
   /* font-family: "Abril Fatface", cursive; */
 }
@@ -48,6 +52,10 @@ body {
   /*height: 11vw;*/
   object-fit: cover;
 }
+/* .link-color {
+  color: #3e64ff;
+} */
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   .card-img-top {
