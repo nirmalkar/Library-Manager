@@ -1,21 +1,23 @@
 <%include partials/header%>
-
-
-<div class="row" style="display:flex; flex-wrap:wrap;">
-  <%books.forEach(function(book){%>
-
-  <div class="col-md-4 col-lg-3 col-sm-6 text-center ">
-    <div class="img-thumbnail">
-
-      <img src="<%=book.image%>" style="width: 200px;">
-      <div class="caption">
-        <h4><%= book.name%> </h4>
+<div class="container">
+  <div class="row" style="display:flex; flex-wrap:wrap;">
+    <%books.forEach(function(book){%>
+    <div class="col-md-4 col-lg-3 col-sm-6 text-center ">
+      <div class="card mt-3">
+        <div class=" card-header">
+          <strong><%=book.name%></strong>
+        </div>
+        <div class="img-thumbnail">
+          <img src="<%=book.image%>" class="card-img-top" alt="">
+          <div class="caption">
+            <h4><%= book.name%> </h4>
+          </div>
+          <span><a class="btn btn-sm btn-primary mt-3" href="/books/<%=book._id%>">More Info</a></span>
+        </div>
       </div>
-      <p><a class="btn btn-lg btn-primary" href="/books/<%=book._id%>">More Info</a></p>
 
     </div>
-
+    <%})%>
   </div>
-  <%})%>
 </div>
 <%include partials/footer%>
