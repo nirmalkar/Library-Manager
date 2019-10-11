@@ -15,42 +15,48 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light ">
-        <a class="navbar-brand text-white" href="/">Libraryapp</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="row no-gutters">
+        <div class="col body-background">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand text-white" href="/">Libraryapp</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link text-white font-size-small" href="/">Home <span
-                            class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white font-size-small" href="/about">About</a>
-                </li>
-            </ul>
-            <a class="text-white font-size-small nav-link" href="/register">Sign Up</a>
-            <a class="text-white font-size-small nav-link" href="/login">Sign In</a>
-            <a class="text-white font-size-small nav-link" href="/logout">Sign Out</a>
-        </div>
-    </nav>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link text-white font-size-small" href="/">Home <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white font-size-small" href="/about">About</a>
+                        </li>
+                    </ul>
+                    <a class="text-white font-size-small nav-link" href="/register">Sign Up</a>
+                    <a class="text-white font-size-small nav-link" href="/login">Sign In</a>
+                    <a class="text-white font-size-small nav-link" href="/logout">Sign Out</a>
+                </div>
+            </nav>
 
-    <div class="video-background d-none d-lg-block">
-        <video autoplay muted loop id="#videoBG">
-            <source src="/assets/library1.mov">
-        </video>
-        <div class="content text-white">
-            <h1>Libraryapp</h1>
-            <p class="font-size-small">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero voluptate facilis ex voluptatem officia
-                ipsa molestias vitae possimus officiis eius!
-            </p>
-            <div class="row">
-                <div class="col text-center">
-                    <a class="btn btn-lg btn-primary" href="/books">Explore Books</a>
+            <div class="video-background">
+                <video class="d-none d-lg-block" autoplay muted loop id="#videoBG">
+                    <source src="/assets/library1.mov">
+                </video>
+                <div class="content text-white">
+                    <h1>Libraryapp</h1>
+                    <p class="font-size-small">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero voluptate facilis ex voluptatem
+                        officia
+                        ipsa molestias vitae possimus officiis eius!
+                    </p>
+                    <div class="row">
+                        <div class="col text-center">
+                            <a class="btn btn-lg btn-primary" href="/books">Explore Books</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
