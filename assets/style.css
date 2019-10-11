@@ -37,8 +37,8 @@ body {
 .video-background .content {
   position: relative;
   z-index: 1;
-  max-width: 1000px;
-  margin: 130px 50px;
+  max-width: 900px;
+  margin: 130px auto;
 }
 
 /* styling navbar */
