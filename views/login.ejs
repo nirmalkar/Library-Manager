@@ -25,14 +25,17 @@
       <div class="card-body">
         <form class="px-4 py-3" action="/login" method="POST">
           <div class="form-group">
-            <label for="exampleDropdownFormEmail1">Username</label>
+            <label class="d-none d-md-block" or="exampleDropdownFormEmail1">Username</label>
             <input type="text" class="form-control" name="username" placeholder="Username">
           </div>
           <div class="form-group">
-            <label for="exampleDropdownFormPassword1">Password</label>
+            <label class="d-none d-md-block" for="exampleDropdownFormPassword1">Password</label>
             <input type="password" name="password" class="form-control" placeholder="Password">
           </div>
-          <button class="btn btn-primary">Sign In</button>
+          <div class="text-center">
+
+            <button class="btn btn-primary btn-lg">Sign In</button>
+          </div>
         </form>
       </div>
     </div>
