@@ -13,6 +13,7 @@ body {
     rgba(61, 121, 176, 1) 11.3%,
     rgba(35, 66, 164, 1) 91.1%
   );
+  height: 100vh;
 }
 /* video for background */
 /* .video-background {
