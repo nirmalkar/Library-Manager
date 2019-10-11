@@ -7,9 +7,15 @@ body {
   font-family: "Roboto Slab", serif;
   /* font-family: "Abril Fatface", cursive; */
 }
-
+.body-background {
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(61, 121, 176, 1) 11.3%,
+    rgba(35, 66, 164, 1) 91.1%
+  );
+}
 /* video for background */
-.video-background {
+/* .video-background {
   margin: 0;
   padding: 0;
   display: flex;
@@ -18,7 +24,7 @@ body {
   align-items: center;
   height: 90vh;
   width: 100%;
-}
+} */
 .video-background video {
   position: absolute;
   top: 0;
@@ -31,7 +37,7 @@ body {
   position: relative;
   z-index: 1;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 230px auto;
 }
 
 /* styling navbar */
