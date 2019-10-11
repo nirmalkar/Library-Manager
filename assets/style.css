@@ -45,16 +45,10 @@ body {
 .font-size-small {
   font-size: 18px;
 }
-/* .card-img-top {
-  width: 100%;
-} */
+
 .card-img-top {
-  /*height: 11vw;*/
   object-fit: cover;
 }
-/* .link-color {
-  color: #3e64ff;
-} */
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
@@ -81,8 +75,15 @@ body {
   }
 }
 
+/* sytle for footer */
 .footer-color {
   background: #3e64ff;
   height: 30vh;
   width: 100%;
+}
+.footer-brand-font {
+  font-family: "Righteous", cursive;
+}
+.margin-top {
+  margin-top: 50px;
 }
