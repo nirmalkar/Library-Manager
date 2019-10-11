@@ -80,3 +80,9 @@ body {
     height: 11vw;
   }
 }
+
+.footer-color {
+  background: #3e64ff;
+  height: 30vh;
+  width: 100%;
+}
